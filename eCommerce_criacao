@@ -13,7 +13,7 @@ db.createCollection("produto");
     Inserindo produtos.
 */
 
-db.produto.insertMany(
+db.produto.insertMany([
     {
     cod : '01',
     nome : 'Caderno',
@@ -148,7 +148,7 @@ db.produto.insertMany(
     preco : 99.99,
     qtd : 154,
     categoria : 'Vestuário'
-    }
+    }]
 )
 
 
@@ -167,7 +167,7 @@ db.createCollection("cliente");
 
 
 
-db.cliente.insertOne(
+db.cliente.insertMany([
     {
     cpf : '01234567890',
     nome : 'Raissa Machado Figueiredo',
@@ -222,7 +222,7 @@ db.cliente.insertOne(
     nome : 'Guilherme de Moura Muniz',
     telefone : '(81) 99901-2347',
     data_nascimento : new ISODate('2003-08-08')
-    }
+    }]
 )
 
 
@@ -241,7 +241,7 @@ db.createCollection("pedidos");
 
 
 
-db.pedidos.insertOne(
+db.pedidos.insertMany([
     {
     cod : '001',
     cod_cliente : '01234567890',
@@ -450,7 +450,7 @@ db.pedidos.insertOne(
         num : '302',
         bairro : 'Várzea'
     }
-    }
+    }]
 )
 
 
@@ -470,7 +470,7 @@ db.createCollection("pagamento");
 
 
 
-db.pagamento.insertOne({
+db.pagamento.insertMany([{
     cod : '001',
     cod_pedido : '001',
     cod_cliente : '01234567890',
@@ -597,5 +597,5 @@ db.pagamento.insertOne({
     cod_pedido : '015',
     cod_cliente : '01234567896',
     tipo : 'dinheiro'
-    }
+    }]
 )
