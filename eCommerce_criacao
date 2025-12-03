@@ -1,0 +1,601 @@
+use ("eCommerce")
+
+db.createCollection("produto");
+
+/*
+    Explicação da coleção de "produtos":
+    Representa o inventário da loja. Cada produto possui atributos como: código identificador,
+    nome do item, marca do fabricante, preço unitário (Decimal128 para precisão monetária),
+    quantidade disponível em estoque e a categoria a qual pertence.
+*/
+
+/*
+    Inserindo produtos.
+*/
+
+db.produto.insertMany(
+    {
+    cod : '01',
+    nome : 'Caderno',
+    marca : 'Tilibra',
+    preco : 230,
+    qtd : 2,
+    categoria : 'Material Escolar'
+    },
+
+    {
+    cod : '02',
+    nome : 'Lápis',
+    marca : 'Faber Castell',
+    preco : 1,
+    qtd : 101,
+    categoria : 'Material Escolar'
+    },
+
+    {
+    cod : '03',
+    nome : 'Caneta',
+    marca : 'Bic',
+    preco : 1.5,
+    qtd : 250,
+    categoria : 'Material Escolar'
+    },
+    
+    {
+    cod : '04',
+    nome : 'Caderno',
+    marca : 'Tilibra',
+    preco : 40,
+    qtd : 56,
+    categoria : 'Material Escolar'
+    },
+
+    {
+    cod : '05',
+    nome : 'Borracha',
+    marca : 'Faber Castell',
+    preco : 2.5,
+    qtd : 63,
+    categoria : 'Material Escolar'
+    },
+
+    {
+    cod : '06',
+    nome : 'Jogos Vorazes',
+    marca : 'Rocco',
+    preco : 35.99,
+    qtd : 104,
+    categoria : 'Livros'
+    },
+
+    {
+    cod : '07',
+    nome : 'A hipótese do amor',
+    marca : 'Arqueiro',
+    preco : 39.99,
+    qtd : 156,
+    categoria : 'Livros'
+    },
+
+    {
+    cod : '08',
+    nome : 'A parábola do semeador',
+    marca : 'Morro Branco',
+    preco : 49.99,
+    qtd : 21,
+    categoria : 'Livros'
+    },
+
+    {
+    cod : '09',
+    nome : 'A parábola dos talentos',
+    marca : 'Morro Branco',
+    preco : 49.99,
+    qtd : 26,
+    categoria : 'Livros'
+    },
+
+
+    {
+    cod : '10',
+    nome : 'Crime e castigo',
+    marca : 'Editora 34',
+    preco : 89.99,
+    qtd : 36,
+    categoria : 'Livros'
+    },
+
+    {
+    cod : '11',
+    nome : 'Em chamas',
+    marca : 'Rocco',
+    preco : 37.99,
+    qtd : 17,
+    categoria : 'Livros'
+    },
+
+    {
+    cod : '12',
+    nome : 'A esperança',
+    marca : 'Rocco',
+    preco : 37.99,
+    qtd : 14,
+    categoria : 'Livros'
+    },
+
+    {
+    cod : '13',
+    nome : 'Camisa',
+    marca : 'c&a',
+    preco : 57.99,
+    qtd : 147,
+    categoria : 'Vestuário'
+    },
+
+    {
+    cod : '14',
+    nome : 'Calça',
+    marca : 'Riachuelo',
+    preco : 107.99,
+    qtd : 154,
+    categoria : 'Vestuário'
+    },
+
+    {
+    cod : '15',
+    nome : 'Bermuda',
+    marca : 'Renner',
+    preco : 99.99,
+    qtd : 154,
+    categoria : 'Vestuário'
+    }
+)
+
+
+db.createCollection("cliente");
+
+/*
+    Explicação da coleção de "clientes":
+    Esta coleção armazena os dados pessoais dos consumidores.
+    Cada documento contém: CPF (identificador único), nome completo, telefone para contato
+    e data de nascimento (formato ISODate).
+*/
+
+/*
+    Inserindo clientes.
+*/
+
+
+
+db.cliente.insertOne(
+    {
+    cpf : '01234567890',
+    nome : 'Raissa Machado Figueiredo',
+    telefone : '(74) 99901-2340',
+    data_nascimento : new ISODate('2006-01-01')
+    },
+
+    {
+    cpf : '01234567891',
+    nome : 'Maria Alice Chaves de Amorim',
+    telefone : '(81) 99901-2341',
+    data_nascimento : new ISODate('2006-02-02')
+    },
+
+    {
+    cpf : '01234567892',
+    nome : 'Arthur Jorge Barros Costa',
+    telefone : '(82) 99901-2342',
+    data_nascimento : new ISODate('2005-03-03')
+    },
+
+    {
+    cpf : '01234567893',
+    nome : 'Giovanna Maria de Carvalho Bardi',
+    telefone : '(63) 99901-2343',
+    data_nascimento : new ISODate('2005-04-04')
+    },
+
+    {
+    cpf : '01234567894',
+    nome : 'Davi Matoso Torreão',
+    telefone : '(87) 99901-2344',
+    data_nascimento : new ISODate('2005-05-05')
+    },
+
+    {
+    cpf : '01234567895',
+    nome : 'Sérgio Tavares Coutinho Moreira Lima',
+    telefone : '(86) 99901-2345',
+    data_nascimento : new ISODate('2004-06-06')
+    },
+
+    {
+    cpf : '01234567896',
+    nome : 'Maria Eduarda Veloso Vieira',
+    telefone : '(81) 99901-2346',
+    data_nascimento : new ISODate('2004-07-07')
+    },
+
+    {
+    cpf : '01234567897',
+    nome : 'Guilherme de Moura Muniz',
+    telefone : '(81) 99901-2347',
+    data_nascimento : new ISODate('2003-08-08')
+    }
+)
+
+
+db.createCollection("pedidos");
+
+/*
+    Explicação da coleção de "pedidos":
+    Registra as compras realizadas. O documento vincula o pedido a um código de cliente e
+    contém um array de produtos (snapshot dos itens comprados). Além disso, armazena um
+    objeto aninhado com os detalhes do local de entrega (CEP, rua, número e bairro).
+*/
+
+/*
+    Inserindo pedidos.
+*/
+
+
+
+db.pedidos.insertOne(
+    {
+    cod : '001',
+    cod_cliente : '01234567890',
+    produto : [
+        db.produto.findOne({cod : '01'},), db.produto.findOne({cod : '02'},), db.produto.findOne({cod : '03'},)
+    ],
+    local_entrega : {
+        cep : '11111111',
+        rua : 'Rua A',
+        num : '123',
+        bairro : 'Várzea'
+    }
+    },
+
+    {
+    cod : '002',
+    cod_cliente : '01234567897',
+    produto : [
+        db.produto.findOne({cod : '15'},)
+    ],
+    local_entrega : {
+        cep : '22222222',
+        rua : 'Rua B',
+        num : '12',
+        bairro : 'Madalena'
+    }
+    },
+
+    {
+    cod : '003',
+    cod_cliente : '01234567896',
+    produto : [
+        db.produto.findOne({cod : '11'},), db.produto.findOne({cod : '09'},)
+    ],
+    local_entrega : {
+        cep : '33333333',
+        rua : 'Rua C',
+        num : '5',
+        bairro : 'Casa Amarela'
+    }
+    },
+
+    {
+    cod : '004',
+    cod_cliente : '01234567893',
+    produto : [
+        db.produto.findOne({cod : '11'},), db.produto.findOne({cod : '09'},)
+    ],
+    local_entrega : {
+        cep : '11111111',
+        rua : 'Rua A',
+        num : '124',
+        bairro : 'Várzea'
+    }
+    },   
+
+    {
+    cod : '005',
+    cod_cliente : '01234567894',
+    produto : [
+        db.produto.findOne({cod : '15'},), db.produto.findOne({cod : '14'},),  db.produto.findOne({cod : '13'},)
+    ],
+    local_entrega : {
+        cep : '11111112',
+        rua : 'Rua E',
+        num : '127',
+        bairro : 'Boa Viagem'
+    }
+    },
+
+    {
+    cod : '006',
+    cod_cliente : '01234567894',
+    produto : [
+        db.produto.findOne({cod : '01'},)
+    ],
+    local_entrega : {
+        cep : '11111112',
+        rua : 'Rua E',
+        num : '127',
+        bairro : 'Boa Viagem'
+    }
+    },        
+
+    {
+    cod : '007',
+    cod_cliente : '01234567892',
+    produto : [
+        db.produto.findOne({cod : '02'},), db.produto.findOne({cod : '02'},)
+    ],
+    local_entrega : {
+        cep : '99999999',
+        rua : 'Rua D',
+        num : '256',
+        bairro : 'Tamarineira'
+    }
+    },
+    
+    {
+    cod : '008',
+    cod_cliente : '01234567891',
+    produto : [
+        db.produto.findOne({cod : '05'},)
+    ],
+    local_entrega : {
+        cep : '88888888',
+        rua : 'Rua F',
+        num : '14',
+        bairro : 'Iputinga'
+    }
+    },
+
+    {
+    cod : '009',
+    cod_cliente : '01234567895',
+    produto : [
+        db.produto.findOne({cod : '09'},)
+    ],
+    local_entrega : {
+        cep : '88888888',
+        rua : 'Rua F',
+        num : '17',
+        bairro : 'Iputinga'
+    }
+    },
+
+    {
+    cod : '010',
+    cod_cliente : '01234567890',
+    produto : [
+        db.produto.findOne({cod : '07'},)
+    ],
+    local_entrega : {
+        cep : '66666666',
+        rua : 'Rua H',
+        num : '302',
+        bairro : 'Várzea'
+    }
+    },
+
+    {
+    cod : '011',
+    cod_cliente : '01234567891',
+    produto : [
+        db.produto.findOne({cod : '07'},), db.produto.findOne({cod : '01'},), db.produto.findOne({cod : '15'},)
+    ],
+    local_entrega : {
+        cep : '88888888',
+        rua : 'Rua F',
+        num : '14',
+        bairro : 'Iputinga'
+    }
+    },
+    
+    {
+    cod : '012',
+    cod_cliente : '01234567893',
+    produto : [
+        db.produto.findOne({cod : '08'},)
+    ],
+    local_entrega : {
+        cep : '66666666',
+        rua : 'Rua H',
+        num : '302',
+        bairro : 'Várzea'
+    }
+    },
+
+    {
+    cod : '013',
+    cod_cliente : '01234567894',
+    produto : [
+        db.produto.findOne({cod : '05'}), db.produto.findOne({cod : '05'},)
+    ],
+    local_entrega : {
+        cep : '66666661',
+        rua : 'Rua I',
+        num : '502',
+        bairro : 'Iputinga'
+    }
+    },
+
+    {
+    cod : '014',
+    cod_cliente : '01234567895',
+    produto : [
+        db.produto.findOne({cod : '05'}), db.produto.findOne({cod : '05'},), db.produto.findOne({cod : '04'},)
+    ],
+    local_entrega : {
+        cep : '66666662',
+        rua : 'Rua J',
+        num : '52',
+        bairro : 'Iputinga'
+    }
+    },
+
+    {
+    cod : '015',
+    cod_cliente : '01234567896',
+    produto : [
+        db.produto.findOne({cod : '07'})
+    ],
+    local_entrega : {
+        cep : '66666666',
+        rua : 'Rua H',
+        num : '302',
+        bairro : 'Várzea'
+    }
+    }
+)
+
+
+db.createCollection("pagamento");
+
+/*
+    Explicação da coleção de "pagamentos":
+    Armazena os dados transacionais financeiros.
+    Cada pagamento é vinculado a um código de pedido e um código de cliente.
+    Contém detalhes sensíveis como tipo de pagamento (crédito/débito), número do cartão (mascarado ou tokenizado idealmente),
+    CVV e a data de vencimento do cartão ou da fatura.
+*/
+
+/*
+    Inserindo pagamentos.
+*/
+
+
+
+db.pagamento.insertOne({
+    cod : '001',
+    cod_pedido : '001',
+    cod_cliente : '01234567890',
+    tipo : 'dinheiro'
+    },
+    
+    {
+    cod : '002',
+    cod_pedido : '002',
+    cod_cliente : '01234567897',
+    tipo : 'dinheiro'},
+    {
+    cod : '003',
+    cod_pedido : '003',
+    cod_cliente : '01234567896',
+    tipo : 'cartão',
+    num_cartao : '1122334455667788',
+    cvv : '123',
+    data_expiracao : new ISODate('2026-07-06'),
+    nome_cartao : 'M Veloso'
+    },
+
+    {
+    cod : '004',
+    cod_pedido : '004',
+    cod_cliente : '01234567893',
+    tipo : 'cartão',
+    num_cartao : '1122334455667799',
+    cvv : '111',
+    data_expiracao : new ISODate('2028-01-06'),
+    nome_cartao : 'G M Bardi'
+    },
+
+    {
+    cod : '005',
+    cod_pedido : '005',
+    cod_cliente : '01234567894',
+    tipo : 'dinheiro'},
+
+    {
+    cod : '006',
+    cod_pedido : '006',
+    cod_cliente : '01234567894',
+    tipo : 'dinheiro'},
+
+    {
+    cod : '007',
+    cod_pedido : '007',
+    cod_cliente : '01234567892',
+    tipo : 'dinheiro'},
+
+    {
+    cod : '008',
+    cod_pedido : '008',
+    cod_cliente : '01234567891',
+    tipo : 'cartão',
+    num_cartao : '1122334455669911',
+    cvv : '596',
+    data_expiracao : new ISODate('2029-10-06'),
+    nome_cartao : 'M A C Amorim'
+    },      
+
+
+
+    {
+    cod : '009',
+    cod_pedido : '009',
+    cod_cliente : '01234567895',
+    tipo : 'cartão',
+    num_cartao : '1122334455667789',
+    cvv : '236',
+    data_expiracao : new ISODate('2031-02-11'),
+    nome_cartao : 'S Lima'
+    },
+
+
+    {
+    cod : '010',
+    cod_pedido : '010',
+    cod_cliente : '01234567890',
+    tipo : 'dinheiro'},
+
+    {
+    cod : '011',
+    cod_pedido : '011',
+    cod_cliente : '01234567891',
+    tipo : 'cartão',
+    num_cartao : '1122334455669911',
+    cvv : '596',
+    data_expiracao : new ISODate('2029-10-06'),
+    nome_cartao : 'M A C Amorim'
+    },
+
+    {
+    cod : '012',
+    cod_pedido : '012',
+    cod_cliente : '01234567893',
+    tipo : 'cartão',
+    num_cartao : '1122334455667799',
+    cvv : '111',
+    data_expiracao : new ISODate('2028-01-06'),
+    nome_cartao : 'G M Bardi'
+    },
+
+    {
+    cod : '013',
+    cod_pedido : '013',
+    cod_cliente : '01234567894',
+    tipo : 'dinheiro'},
+
+    {
+    cod : '014',
+    cod_pedido : '014',
+    cod_cliente : '01234567895',
+    tipo : 'cartão',
+    num_cartao : '1122334455667789',
+    cvv : '236',
+    data_expiracao : new ISODate('2031-02-11'),
+    nome_cartao : 'S Lima'
+    },
+
+    {
+    cod : '015',
+    cod_pedido : '015',
+    cod_cliente : '01234567896',
+    tipo : 'dinheiro'
+    }
+)
