@@ -222,7 +222,14 @@ db.cliente.insertMany([
     nome : 'Guilherme de Moura Muniz',
     telefone : '(81) 99901-2347',
     data_nascimento : new ISODate('2003-08-08')
-    }]
+    },
+    {
+    cpf : '34873973243',
+    nome : 'Arthur Martins Medeiros',
+    telefone : '(63) 99901-2212',
+    data_nascimento : new ISODate('2006-04-18')
+    }
+]
 )
 
 
