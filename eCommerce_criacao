@@ -467,7 +467,7 @@ db.createCollection("pagamento");
     Explicação da coleção de "pagamentos":
     Armazena os dados transacionais financeiros.
     Cada pagamento é vinculado a um código de pedido e um código de cliente.
-    Contém detalhes sensíveis como tipo de pagamento (crédito/débito), número do cartão (mascarado ou tokenizado idealmente),
+    Contém detalhes sensíveis como tipo de pagamento (dinheiro/cartão), número do cartão (mascarado ou tokenizado idealmente),
     CVV e a data de vencimento do cartão ou da fatura.
 */
 
@@ -494,6 +494,7 @@ db.pagamento.insertMany([{
     cod_pedido : '003',
     cod_cliente : '01234567896',
     tipo : 'cartão',
+    tipo_cartao : 'crédito',
     num_cartao : '1122334455667788',
     cvv : '123',
     data_expiracao : new ISODate('2026-07-06'),
@@ -505,6 +506,7 @@ db.pagamento.insertMany([{
     cod_pedido : '004',
     cod_cliente : '01234567893',
     tipo : 'cartão',
+    tipo_cartao : 'débito',
     num_cartao : '1122334455667799',
     cvv : '111',
     data_expiracao : new ISODate('2028-01-06'),
@@ -534,6 +536,7 @@ db.pagamento.insertMany([{
     cod_pedido : '008',
     cod_cliente : '01234567891',
     tipo : 'cartão',
+    tipo_cartao : 'débito',
     num_cartao : '1122334455669911',
     cvv : '596',
     data_expiracao : new ISODate('2029-10-06'),
@@ -547,6 +550,7 @@ db.pagamento.insertMany([{
     cod_pedido : '009',
     cod_cliente : '01234567895',
     tipo : 'cartão',
+    tipo_cartao : 'crédito',
     num_cartao : '1122334455667789',
     cvv : '236',
     data_expiracao : new ISODate('2031-02-11'),
@@ -565,6 +569,7 @@ db.pagamento.insertMany([{
     cod_pedido : '011',
     cod_cliente : '01234567891',
     tipo : 'cartão',
+    tipo_cartao : 'débito',
     num_cartao : '1122334455669911',
     cvv : '596',
     data_expiracao : new ISODate('2029-10-06'),
@@ -576,6 +581,7 @@ db.pagamento.insertMany([{
     cod_pedido : '012',
     cod_cliente : '01234567893',
     tipo : 'cartão',
+    tipo_cartao : 'débito',
     num_cartao : '1122334455667799',
     cvv : '111',
     data_expiracao : new ISODate('2028-01-06'),
@@ -593,6 +599,7 @@ db.pagamento.insertMany([{
     cod_pedido : '014',
     cod_cliente : '01234567895',
     tipo : 'cartão',
+    tipo_cartao : 'crédito',
     num_cartao : '1122334455667789',
     cvv : '236',
     data_expiracao : new ISODate('2031-02-11'),
