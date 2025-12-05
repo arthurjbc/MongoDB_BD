@@ -43,7 +43,7 @@ db.produto.insertMany([
     
     {
     cod : '04',
-    nome : 'Caderno',
+    nome : 'Estojo',
     marca : 'Tilibra',
     preco : 40,
     qtd : 56,
